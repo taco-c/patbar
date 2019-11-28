@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Plugin>
+    <Information>
+        <Name>Patbar</Name>
+        <Author>Patadora</Author>
+        <Version>0.1.0</Version>
+        <Description>
+            Minimalistic replacement for TitanBar. Only shows player information.
+        </Description>
+    </Information>
+    <Package>Patbar.Patbar.Main</Package>
+</Plugin>
