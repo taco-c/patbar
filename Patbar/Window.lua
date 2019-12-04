@@ -7,10 +7,7 @@ function Window:Constructor(x, y, w, h)
     Turbine.UI.Lotro.Window.Constructor(self)
     self:SetPosition(x, y)
     self:SetSize(w, h)
-    self.Data = {
-        Morale = format(math.round(player:GetMaxMorale())),
-        Armour = format(math.round(player:GetAttributes():GetArmor()))
-    }
+    
     -- data[1]["value"] = player:GetMaxMorale
     -- Player:GetAttributes():GetArmor()
     -- self.PlayerData = data
@@ -18,17 +15,39 @@ function Window:Constructor(x, y, w, h)
     self.morale = Turbine.UI.Label()
     self.morale:SetParent(self)
     self.morale:SetPosition(25, 40)
-    self.morale:SetSize(190, 100)
+    self.morale:SetSize(175, 100)
     self.morale:SetTextAlignment(Turbine.UI.ContentAlignment.TopLeft)
     self.morale:SetText("Morale:")
 
     self.morale_right = Turbine.UI.Label()
     self.morale_right:SetParent(self)
     self.morale_right:SetPosition(25, 40)
-    self.morale_right:SetSize(190, 100)
+    self.morale_right:SetSize(175, 100)
     self.morale_right:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight)
+
+    self.armour = Turbine.UI.Label()
+    self.armour:SetParent(self)
+    self.armour:SetPosition(225, 40)
+    self.armour:SetSize(175, 100)
+    self.armour:SetTextAlignment(Turbine.UI.ContentAlignment.TopLeft)
+    self.armour:SetText("Armour:")
+
+    self.armour_right = Turbine.UI.Label()
+    self.armour_right:SetParent(self)
+    self.armour_right:SetPosition(225, 40)
+    self.armour_right:SetSize(175, 100)
+    self.armour_right:SetTextAlignment(Turbine.UI.ContentAlignment.TopRight)
     
     self:UpdateInfo()
+end
+
+function Window:UpdateInfo()
+    self.Data = {
+        Morale = format(math.round(player:GetMaxMorale())),
+        Armour = format(math.round(player:GetAttributes():GetArmor()))
+    }
+    self.morale_right:SetText(self.Data.Morale)
+    self.armour_right:SetText(self.Data.Armour)
 end
 
 function Window:ToggleVisible()
@@ -36,10 +55,6 @@ function Window:ToggleVisible()
     if self:IsVisible() then
         self:UpdateInfo()
     end
-end
-
-function Window:UpdateInfo()
-    self.morale_right:SetText(self.Data.Morale)
 end
 
 function format( number )
