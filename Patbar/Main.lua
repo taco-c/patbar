@@ -12,7 +12,8 @@ end
 player = Turbine.Gameplay.LocalPlayer.GetInstance()
 screen_w, screen_h = Turbine.UI.Display.GetSize()
 
-win_w, win_h = 850, 240
+-- win_w, win_h = 850, 240
+win_w, win_h = 430, 315
 win_x, win_y = screen_w / 2 - win_w / 2, 40
 -- win_pos = Turbine.Load(Turbine.DataScope.Character, "Patbar", )
 
